@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+  <html>
+      <head>
+   <title>Task Menu</title>
+  </head>
+<body>
+    <fieldset>
+
+        <legend>Tasks</legend>
+
+    </fieldset>
+	
+	<button id="btnMain">Main page</button>
+	<button id="btnCalendar">Calendar</button>
+	<button id="btnAddDeleteTask">Add/Delete Tasks</button>
+	<button id="btnTaskManual">Task Manual</button>
+	<button id="btnLearnAboutUs">Learn About The Developers</button>
+	
+       <script>
+			btnMain.addEventListener("click", () => {
+                window.location.href = "Mainpage.html";
+            })
+			btnCalendar.addEventListener("click", () => {
+				window.location.href = "Calendar.html";
+			})
+			btnAddDeleteTask.addEventListener("click", () => {
+				window.location.href = "AddorDeleteTask.html";
+			})
+			btnTaskManual.addEventListener("click", () => {
+				window.location.href = "Taskmanual.html";
+			})
+			btnLearnAboutUs.addEventListener("click", () => {
+				window.location.href = "Learnaboutus.html";
+			})
+       </script>
+</body>
+</html>

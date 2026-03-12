@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+  <html>
+      <head>
+   <title>Creating task</title>
+  </head>
+<body>
+
+    <h1>Creating new task</h1>
+
+    <label for="SetDate">Date:</label>
+	<input type="date" id="SetDate"% name="SetDate">
+    <br><br>
+	<label for="NameOfTask">Title:</label>
+    <textarea id="NameOfTask" name="NameOfTask" cols="20" rows="1"></textarea>
+    <br><br>
+    <label for="Goal">Goal:</label> 
+	<textarea id="Goal" name="Goal" cols="35" rows="1"></textarea>
+    <br><br>
+    <label for="Deadline">Deadline:</label>
+	<input type="time" id="timecount" name="timecount">
+    <br><br>
+	<button id="tasksubmit">Add Task</button>
+	
+	<p> Task submitted:</p>
+	<p> Date of Task: <span id="output-date"></span></p>
+	<p> Title of Task: <span id="output-name"></span></p>
+	<p> Goal of Task: <span id="output-goal"></span></p>
+	<p> Deadline Time: <span id="output-deadline"></span> </p>
+	
+	<br><br>
+	
+	<button id="btnMain">Main page</button>
+	<button id="btnCalendar">Calendar</button>
+	<button id="btnCurrentTask">View Current Tasks</button>
+	<button id="btnTaskManual">Task Manual</button>
+	<button id="btnLearnAboutUs">Learn About The Developers</button>
+
+       <script>
+		function taskDate() {
+			const taskDateInput = document.getElementById("SetDate");
+			const taskDateInputValue = taskDateInput.value;
+			const dateOutputElement = document.getElementById("output-date");
+
+			if (taskDateInputValue) {
+            dateOutputElement.textContent = taskDateInputValue;
+			} else {
+            dateOutputElement.textContent = "No Date Selected";
+			}
+		}
+
+		const buttontasksubmit = document.getElementById("tasksubmit");
+		buttontasksubmit.addEventListener("click", taskDate);\
+		
+		function taskName() {
+			const taskNameInput = document.getElementById("NameOfTask");
+			const taskNameInputValue = taskNameInput.value;
+			const nameOutputElement = document.getElementById("output-name");
+		
+			if (taskNameInputValue) {
+				nameOutputElement.textContent = taskNameInputValue;
+			} else {
+				nameOutputElement.textContent = "No Title Given";
+			}
+		}
+		
+		buttontasksubmit.addEventListener("click", taskName);
+		
+		function taskGoal() {
+			const taskGoalInput = document.getElementById("Goal");
+			const taskGoalInputValue = taskGoalInput.value;
+			const goalOutputElement = document.getElementById("output-goal");
+			
+			if (taskGoalInputValue) {
+				goalOutputElement.textContent = taskGoalInputValue;
+			} else {
+				goalOutputElement.textContent = "No Goal Given";
+			}
+		}
+		
+		buttontasksubmit.addEventListener("click", taskGoal);
+		
+		function taskDeadline() {
+			const taskDeadline = document.getElementById("timecount");
+			const taskDeadlineValue = taskDeadline.value;
+			const deadlineOutputElement = document.getElementById("output-deadline");
+			
+			if (taskDeadlineValue) {
+				deadlineOutputElement.textContent = taskDeadlineValue;
+			} else {
+				deadlineOutputElement.textContent = "No Deadline Given";
+			}
+		}
+		
+		buttontasksubmit.addEventListener("click", taskDeadline);
+		
+		buttontasksubmit.addEventListener("click", sendtolist);
+		
+			btnMain.addEventListener("click", () => {
+                window.location.href = "Mainpage.html";
+            })
+			btnCalendar.addEventListener("click", () => {
+				window.location.href = "Calendar.html";
+			})
+			btnCurrentTask.addEventListener("click", () => {
+				window.location.href = "Tasks.html";
+			})
+			btnTaskManual.addEventListener("click", () => {
+				window.location.href = "Taskmanual.html";
+			})
+			btnLearnAboutUs.addEventListener("click", () => {
+				window.location.href = "Learnaboutus.html";
+			})
+       </script>
+</body>
+</html>

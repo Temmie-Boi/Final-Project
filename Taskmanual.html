@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+  <html>
+      <head>
+   <title>Mr Manual</title>
+  </head>
+<body>
+
+<label for="taskSelection">Choose a task below:</label>
+<select id="taskInstructMenu" name="taskInstructMenu">
+	<option value="">Please select an Option</option>
+	<option value="bathroom">Cleaning your Bathroom</option>
+	<option value="bedroom">Cleaning your Bedroom</option>
+	<option value="bed">Making your bed</option>
+	<option value="dishwash">Washing your dishes</option>
+	</select>
+<br>
+
+<br>
+
+        <button id="btnMain">Main page</button>
+		<button id="btnCalendar">Calendar</button>
+		<button id="btnCurrentTask">View Current Tasks</button>
+		<button id="btnAddDeleteTask">Add/Delete Tasks</button>
+		<button id="btnLearnAboutUs">Learn About The Developers</button>
+
+       <script>
+	   
+	   const wikihowMap = {
+		bathroom: "https://www.wikihow.com/Clean-a-Bathroom",
+		bedroom: "https://www.wikihow.com/Clean-Your-Room",
+		bed: "https://www.wikihow.com/Make-Your-Bed",
+		dishwash: "https://www.wikihow.com/Wash-Dishes"
+		};
+		
+		const selectatask = document.getElementById("taskInstructMenu");
+		
+		selectatask.addEventListener("change", () => {
+		const manualpage = selectatask.value;
+		if (!manualpage) return;
+		const url = wikihowMap[manualpage];
+		
+		window.open(url, "_blank");
+		});
+		
+        btnMain.addEventListener("click", () => {
+                window.location.href = "Mainpage.html";
+            })
+		btnCalendar.addEventListener("click", () => {
+				window.location.href = "Calendar.html";
+			})
+		btnCurrentTask.addEventListener("click", () => {
+				window.location.href = "Tasks.html";
+			})
+		btnAddDeleteTask.addEventListener("click", () => {
+				window.location.href = "AddorDeleteTask.html";
+			})
+		btnLearnAboutUs.addEventListener("click", () => {
+				window.location.href = "Learnaboutus.html";
+			})
+       </script>
+</body>
+</html>
