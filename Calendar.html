@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TaskOMatic Calendar</title>
+        <link rel="stylesheet" href="main.css">
+
+        <style>
+        table, th, td {
+            border: 1px solid black;
+        }
+        </style>
+    </head>
+
+    <body>
+        <h2>Calendar Display</h2>
+        <fieldset>
+
+            <legend>Calendar</legend>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Sunday</th>
+                        <th>Monday</th>
+                        <th>Tuesday</th>
+                        <th>Wednesday</th>
+                        <th>Thursday</th>
+                        <th>Friday</th>
+                        <th>Saturday</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td rowspan="2">This first 1</td>
+                        <td rowspan="2">This first 2</td>
+                        <td rowspan="2">This first 3</td>
+                        <td rowspan="2">This first 4</td>
+                        <td rowspan="2">This first 5</td>
+                        <td rowspan="2">This first 6</td>
+                        <td rowspan="2">This first 7</td>
+                    </tr>
+					<tr>
+					</tr>
+                    <tr>
+                        <td>This Second 1</td>
+                        <td>This Second 2</td>
+                        <td>This Second 3</td>
+                        <td>This Second 4</td>
+                        <td>This Second 5</td>
+                        <td>This Second 6</td>
+                        <td>This Second 7</td>
+                    </tr>
+                    <tr>
+                        <td>This Third 1</td>
+                        <td>This Third 2</td>
+                        <td>This Third 3</td>
+                        <td>This Third 4</td>
+                        <td>This Third 5</td>
+                        <td>This Third 6</td>
+                        <td>This Third 7</td>
+                    </tr>
+                    <tr>
+                        <td>This Fourth 1</td>
+                        <td>This Fourth 2</td>
+                        <td>This Fourth 3</td>
+                        <td>This Fourth 4</td>
+                        <td>This Fourth 5</td>
+                        <td>This Fourth 6</td>
+                        <td>This Fourth 7</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div style="height: 2000px;"></div> <!-- test to see if scrolling works :3 -->
+
+        </fieldset>
+
+            <p>If you would like to go somewhere else, click on one of these:</p>
+
+            <br><br>
+            
+            <button id="btnMain">Main page</button>
+			<button id="btnCurrentTask">View Current Tasks</button>
+			<button id="btnAddDeleteTask">Add/Delete Tasks</button>
+			<button id="btnTaskManual">Task Manual</button>
+			<button id="btnLearnAboutUs">Learn About The Developers</button>
+
+        <script>
+            btnMain.addEventListener("click", () => {
+                window.location.href = "Mainpage.html";
+            })
+			btnCurrentTask.addEventListener("click", () => {
+				window.location.href = "Tasks.html";
+			})
+			btnAddDeleteTask.addEventListener("click", () => {
+				window.location.href = "AddorDeleteTask.html";
+			})
+			btnTaskManual.addEventListener("click", () => {
+				window.location.href = "Taskmanual.html";
+			})
+			btnLearnAboutUs.addEventListener("click", () => {
+				window.location.href = "Learnaboutus.html";
+			})
+        </script>
+    </body>
+</html>

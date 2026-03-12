@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>TaskOMatic.com</title>
+        <link rel="stylesheet" href="main.css">
+    </head>
+
+    <body>
+        <fieldset>
+        <legend>Main Menu</legend>
+
+        <h1>Welcome to Task O Matic</h1>
+
+        <p>Here is our list of menu options to chose from</p>
+    
+        
+        <button id="btnCalendar" style="width: 322px; height: 214px;" >Calendar</button>
+    
+            
+        <button id="btnCurrent" style="width: 322px; height: 214px;">View Current Tasks</button>
+
+
+        <button id="btnAddDelete" style="width: 322px; height: 214px;">Add/Delete Tasklist</button>
+
+
+        <button id="btnManual" style="width: 322px; height: 214px;">View Task Instructional Manual</button>
+
+
+        <button id="btnLearn" style="width: 322px; height: 214px;">Learn more about our app here</button>
+        
+
+        </fieldset>
+        
+        <script>
+        
+            btnCalendar.addEventListener("click", () => {
+                window.location.href = "Calendar.html";
+            })
+
+            btnCurrent.addEventListener("click", () => {
+                window.location.href = "Tasks.html";
+            })
+
+             btnAddDelete.addEventListener("click", () => {
+                window.location.href = "AddorDeleteTask.html";
+            })
+            
+             btnManual.addEventListener("click", () => {
+                window.location.href = "Taskmanual.html";
+            })
+
+             btnLearn.addEventListener("click", () => {
+                window.location.href = "Learnaboutus.html";
+            })
+        </script>
+    </body>
+</html>

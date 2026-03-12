@@ -1,0 +1,30 @@
+body{
+	background-image: url("images/background.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	background-attachment: scroll; 
+}
+	
+html, body {
+  margin: 0;
+  padding: 0;
+  height: auto;
+  overflow-y: auto;
+}
+
+#btnCalendar, #btnCurrent, #btnAddDelete, #btnManual, #btnLearn  {
+  background-image: url('images/placeholder.png');
+  background-size: contain;   /* or cover */
+  background-repeat: no-repeat;
+  background-position: center;
+  
+  background-color: transparent; /* important */
+  border: none;
+  width: 322x;
+  height: 214px;
+  cursor: pointer;
+}
+
+/* test */ 
+
