@@ -13,7 +13,11 @@ body {font-family: Verdana, sans-serif;}
 .month {
   padding: 70px 25px;
   width: 100%;
+<<<<<<< HEAD
   background: #b30095;
+=======
+  background: #1abc9c;
+>>>>>>> 3a125c3b7721c0b2650f8adf530ce3fac7b5e855
   text-align: center;
 }
 
