@@ -2,7 +2,7 @@
 <html>
     <head>
         <title>TaskOMatic Calendar</title>
-        <link rel="stylesheet" href="main.css">
+        <link rel="stylesheet" href="calendar.css">
 
         <style>
         table, th, td {
@@ -14,62 +14,59 @@
     <body>
         <h2>Calendar Display</h2>
         <fieldset>
-
+        <li id="month-year"></li>
             <legend>Calendar</legend>
+            <div class="month">
+                <ul>
+                    <li class="prev">&#10094;</li>
+                    <li class="next">&#10095;</li>
+                    <li><br>March<span style="font-size:18px">2026</span></li>
+                </ul>
+                </div>
 
-            <table>
-                <thead>
-                    <tr>
-                        <th>Sunday</th>
-                        <th>Monday</th>
-                        <th>Tuesday</th>
-                        <th>Wednesday</th>
-                        <th>Thursday</th>
-                        <th>Friday</th>
-                        <th>Saturday</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td rowspan="2">This first 1</td>
-                        <td rowspan="2">This first 2</td>
-                        <td rowspan="2">This first 3</td>
-                        <td rowspan="2">This first 4</td>
-                        <td rowspan="2">This first 5</td>
-                        <td rowspan="2">This first 6</td>
-                        <td rowspan="2">This first 7</td>
-                    </tr>
-					<tr>
-					</tr>
-                    <tr>
-                        <td>This Second 1</td>
-                        <td>This Second 2</td>
-                        <td>This Second 3</td>
-                        <td>This Second 4</td>
-                        <td>This Second 5</td>
-                        <td>This Second 6</td>
-                        <td>This Second 7</td>
-                    </tr>
-                    <tr>
-                        <td>This Third 1</td>
-                        <td>This Third 2</td>
-                        <td>This Third 3</td>
-                        <td>This Third 4</td>
-                        <td>This Third 5</td>
-                        <td>This Third 6</td>
-                        <td>This Third 7</td>
-                    </tr>
-                    <tr>
-                        <td>This Fourth 1</td>
-                        <td>This Fourth 2</td>
-                        <td>This Fourth 3</td>
-                        <td>This Fourth 4</td>
-                        <td>This Fourth 5</td>
-                        <td>This Fourth 6</td>
-                        <td>This Fourth 7</td>
-                    </tr>
-                </tbody>
-            </table>
+                <ul class="weekdays">
+                <li>Mo</li>
+                <li>Tu</li>
+                <li>We</li>
+                <li>Th</li>
+                <li>Fr</li>
+                <li>Sa</li>
+                <li>Su</li>
+                </ul>
+
+                <ul class="days">
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+                <li>6</li>
+                <li>7</li>
+                <li>8</li>
+                <li>9</li>
+                <li>10</li>
+                <li>11</li>
+                <li>12</li>
+                <li>13</li>
+                <li>14</li>
+                <li>15</li>
+                <li>16</li>
+                <li>17</li>
+                <li><span class="active">18</span></li>
+                <li>19</li>
+                <li>20</li>
+                <li>21</li>
+                <li>22</li>
+                <li>23</li>
+                <li>24</li>
+                <li>25</li>
+                <li>26</li>
+                <li>27</li>
+                <li>28</li>
+                <li>29</li>
+                <li>30</li>
+                <li>31</li>
+                </ul>
             
             <div style="height: 2000px;"></div> <!-- test to see if scrolling works :3 -->
 
