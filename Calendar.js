@@ -13,3 +13,4 @@ btnMain.addEventListener("click", () => {
 			btnLearnAboutUs.addEventListener("click", () => {
 				window.location.href = "Learnaboutus.html";
 			})
+
