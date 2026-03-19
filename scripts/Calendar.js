@@ -33,7 +33,13 @@ function renderCalendar() {
         const firstDay = new Date(year, month, 1).getDay(); 
         const startOffset = (firstDay === 0 ? 6 : firstDay - 1);
         const daysInMonth = new Date(year, month + 1, 0).getDate();
+        daysContainer.innerHTML = ""; 
+        const firstDay = new Date(year, month, 1).getDay();
+        const startOffset = (firstDay === 0 ? 6 : firstDay - 1);
+        const daysInMonth = new Date(year, month + 1, 0).getDate();
         daysContainer.innerHTML = "";
+
+        
 
         for (let i = 0; i < startOffset; i++) {
             daysContainer.innerHTML += `<li></li>`;
@@ -59,8 +65,6 @@ function renderCalendar() {
     nextBtn.addEventListener("click", () => {
         currentDate.setMonth(currentDate.getMonth() + 1);
         renderCalendar();
-    });
-
     renderCalendar();
 });
 
