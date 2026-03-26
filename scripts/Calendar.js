@@ -64,5 +64,21 @@ function renderCalendar() {
     renderCalendar();
 });
 
+document.addEventListener("DOMContentLoaded", function() {
+    const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+    const fieldset = document.querySelector('fieldset');
+
+    if (tasks.length === 0) {
+        fieldset.innerHTML += '<p>No tasks yet</p>'
+    } else {
+        tasks.forEach(task => {
+            const p = document.createElement('p');
+            p.textContent = `${task.date}: ${task.title} - ${task.goal} (${task.deadline || 'No deadline'})`;
+            fieldset.appendChild(p);
+        });
+    }
+});
+
+
 // calendar code ends here, thank you for reading 
 // - Temmie :3 (Lorenzo)
