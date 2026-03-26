@@ -14,6 +14,11 @@ html, body {
 }
 
 #btnCalendar, #btnCurrent, #btnAddDelete, #btnManual, #btnLearn  {
+  font-family: "Pixelify Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+
   background-image: url('images/placeholder.png');
   background-size: contain;   /* or cover */
   background-repeat: no-repeat;
