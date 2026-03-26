@@ -60,6 +60,7 @@ div {
   padding: 10px 0;
   background: #eee;
   margin: 0;
+  line-height: 5.0;
 }
 
 .days li {
