@@ -17,6 +17,10 @@ body {font-family: Verdana, sans-serif;}
   text-align: center;
 }
 
+div {
+  text-align: Center;
+}
+
 .month ul {
   margin: 0;
   padding: 0;
