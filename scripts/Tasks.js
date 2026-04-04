@@ -23,8 +23,23 @@ document.addEventListener("DOMContentLoaded", function() { // waits for the page
     } else {
         tasks.forEach(task => { // iterates through each task in the tasks array and creates a new paragraph element for each task, displaying the task's date, title, goal, and deadline (if it exists)
             const p = document.createElement('p');
-            p.textContent = `${task.date}: ${task.title} - ${task.goal} (${task.deadline || 'No deadline'})`; // adds the new paragraph element to the fieldset
+            p.textContent = `${task.date}: ${task.title} - ${task.goal} (${task.deadline || 'No deadline'}) `; // adds the new paragraph element to the fieldset
             fieldset.appendChild(p); // adds the new paragraph element to the fieldset
         });
     }
 });
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  const buttontaskdeleteall = document.getElementById("btnDeleteAllTasks");
+  buttontaskdeleteall.addEventListener("click", localStorage.removeItem())
+});
+
+
+
+//document.addEventListener("DOMContentDeleted", function() {
+    //const tasks = JSON.parse(localStorage.getItem('tasks'));
+    //const fieldset = document.querySelector('fieldset')
+    
+    //localStorage.clear();
+//});
