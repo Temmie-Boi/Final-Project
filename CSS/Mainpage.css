@@ -4,7 +4,7 @@ body{
 	background-size: cover;
 	background-position: center;
 	background-attachment: scroll; 
-  text-align: Center;
+  text-align: center;
 }
 	
 html, body {
@@ -27,7 +27,7 @@ html, body {
   
   background-color: transparent; /* important */
   border: none;
-  width: 322x;
+  width: 322px; /*Made it px instead of x to make it congruent*/
   height: 214px;
   cursor: pointer;
 }

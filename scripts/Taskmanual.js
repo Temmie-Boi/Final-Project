@@ -5,7 +5,7 @@ const wikihowMap = {
 		dishwash: "https://www.wikihow.com/Wash-Dishes"
 		};
 		
-		const selectatask = document.getElementById("taskInstructMenu");
+		const selectatask = document.getElementById("taskSelection");
 		
 		selectatask.addEventListener("change", () => {
 		const manualpage = selectatask.value;

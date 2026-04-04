@@ -60,7 +60,7 @@ function taskDate() {
 		buttontasksubmit.addEventListener("click", taskGoal);
 		
 		function taskDeadline() {
-			const taskDeadline = document.getElementById("timecount");
+			const taskDeadline = document.getElementById("Deadline");
 			const taskDeadlineValue = taskDeadline.value;
 			const deadlineOutputElement = document.getElementById("output-deadline");
 			
@@ -79,7 +79,7 @@ function sendtolist() {
     const date = document.getElementById("SetDate").value; // the date of the tasks 
     const title = document.getElementById("NameOfTask").value; // the title of the tasks 
     const goal = document.getElementById("Goal").value; // the goal of the tasks 
-    const deadline = document.getElementById("timecount").value; // the deadline of the tasks
+    const deadline = document.getElementById("Deadline").value; // the deadline of the tasks
 
     // Basic validation: require at least a date and title
     if (!date || !title.trim()) {
@@ -96,7 +96,7 @@ function sendtolist() {
     document.getElementById("SetDate").value = "";
     document.getElementById("NameOfTask").value = "";
     document.getElementById("Goal").value = "";
-    document.getElementById("timecount").value = "";
+    document.getElementById("Deadline").value = "";
 
     alert("Task added successfully!"); // confirmation message 
 }
