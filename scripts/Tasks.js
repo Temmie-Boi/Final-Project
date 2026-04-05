@@ -22,18 +22,29 @@ document.addEventListener("DOMContentLoaded", function() { // waits for the page
         fieldset.innerHTML += '<p>No tasks yet.</p>'; 
     } else {
         tasks.forEach(task => { // iterates through each task in the tasks array and creates a new paragraph element for each task, displaying the task's date, title, goal, and deadline (if it exists)
+            const div = document.createElement('div'); //makes a new div wrapper for editing
             const p = document.createElement('p');
+            const editBtn = document.createElement('button');
             p.textContent = `${task.date}: ${task.title} - ${task.goal} (${task.deadline || 'No deadline'}) `; // adds the new paragraph element to the fieldset
-            fieldset.appendChild(p); // adds the new paragraph element to the fieldset
+            editBtn.textContent = "Edit"; //Edit button text
+            editBtn.dataset.id = task.id;//Edit button using the id to edit it
+            div.appendChild(p);
+            div.appendChild(editBtn);
+            fieldset.appendChild(div); // adds the new paragraph element to the fieldset
+            editBtn.addEventListener("click", function(){
+                const editClickIdOk = editBtn.dataset.id; //use the ID for the edit
+                localStorage.setItem('editingTaskID', editClickIdOk);
+                window.location.href = "AddorDeleteTask.html";
+            });
         });
     }
 });
 
 
-document.addEventListener("DOMContentLoaded", function() {
-  const buttontaskdeleteall = document.getElementById("btnDeleteAllTasks");
-  buttontaskdeleteall.addEventListener("click", localStorage.removeItem())
-});
+//document.addEventListener("DOMContentLoaded", function() {
+  //const buttontaskdeleteall = document.getElementById("btnDeleteAllTasks");
+  //buttontaskdeleteall.addEventListener("click", localStorage.removeItem())
+//});
 
 
 
