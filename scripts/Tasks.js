@@ -13,6 +13,7 @@
 				window.location.href = "Calendar.html";
 			})
 			btnAddDeleteTask.addEventListener("click", () => {
+                localStorage.removeItem("editingTaskID");//Removes their IDso it goes ONLY to addpage
 				window.location.href = "AddorDeleteTask.html";
 			})
 			btnTaskManual.addEventListener("click", () => {
@@ -64,7 +65,7 @@
             : tasks.map(task => React.createElement("div", {key: task.id}, React.createElement("p", null,`${task.date}: ${task.title} - ${task.goal} (${task.deadline || "No deadline"})` ), //If there is a task, make a p tag that pulls the id for the task so the system know,
                                                                                                                                                           // DO NOT USE ', USE ` because that needs to be it to pull the data and make it a template for the variables!                                                                                                                                      // then pull the date, title, goal, and deadline and make something if there is no deadline
                 React.createElement(                                                                                                                      //Why is this in four lines? Because even on a 4k monitor, I need to scroll and i would rather not.
-                    "button",
+                    "button",                                                                                                                             //Why is this in four lines? Because even on a 4k monitor, I need to scroll and i would rather not.
                     {
                         onClick: () => { //What this do when it is clicked
                             localStorage.setItem("editingTaskID", task.id); //Pull the ID already set from LocalStorage
@@ -73,6 +74,17 @@
                         }
                     },
                     "Edit"
+                ),
+                React.createElement(                                                                                                                      
+                    "button",
+                    {
+                        onClick: () => {
+                            const DeletedUpdateTasks = tasks.filter(taskItem => taskItem.id !== task.id); //Makes sure to only delete the item requested.
+                            localStorage.setItem("tasks", JSON.stringify(DeletedUpdateTasks)); //Hi there, please update the list
+                            window.location.reload(); //Hi there again, please reload so I can see the deletion
+                        }
+                    },
+                    "Delete"
                 )
                     
                 )                                                                                                                                         
