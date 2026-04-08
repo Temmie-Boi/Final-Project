@@ -14,7 +14,7 @@ html, body {
   overflow-y: auto;
 }
 
-#btnCalendar, #btnCurrent, #btnAddDelete, #btnManual, #btnLearn  {
+#btnCalendar, #btnCurrentTask, #btnAddDeleteTask, #btnManual, #btnLearnAboutUs  {
   font-family: "Pixelify Sans", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;

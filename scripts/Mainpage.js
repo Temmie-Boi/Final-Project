@@ -1,13 +1,18 @@
 document.addEventListener("DOMContentLoaded", function() {
-btnCalendar.addEventListener("click", () => {
+    const btnManual = document.getElementById("btnManual");
+    const btnCalendar = document.getElementById("btnCalendar");
+    const btnCurrentTask = document.getElementById("btnCurrentTask");
+    const btnAddDeleteTask = document.getElementById("btnAddDeleteTask");
+    const btnLearnAboutUs = document.getElementById("btnLearnAboutUs");
+    btnCalendar.addEventListener("click", () => {
                 window.location.href = "Calendar.html";
             })
 
-            btnCurrent.addEventListener("click", () => {
+            btnCurrentTask.addEventListener("click", () => {
                 window.location.href = "Tasks.html";
             })
 
-             btnAddDelete.addEventListener("click", () => {
+             btnAddDeleteTask.addEventListener("click", () => {
                 window.location.href = "AddorDeleteTask.html";
             })
             
@@ -15,7 +20,7 @@ btnCalendar.addEventListener("click", () => {
                 window.location.href = "Taskmanual.html";
             })
 
-             btnLearn.addEventListener("click", () => {
+             btnLearnAboutUs.addEventListener("click", () => {
                 window.location.href = "Learnaboutus.html";
             })
         });

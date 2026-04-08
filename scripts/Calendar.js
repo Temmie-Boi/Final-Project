@@ -1,4 +1,12 @@
-btnMain.addEventListener("click", () => {
+// calendar code starts here 
+document.addEventListener("DOMContentLoaded", function () { // this waits for the whole webpage to load before running the calendar code
+    const btnMain = document.getElementById("btnMain");
+    const btnCurrentTask = document.getElementById("btnCurrentTask");
+    const btnAddDeleteTask = document.getElementById("btnAddDeleteTask");
+    const btnTaskManual = document.getElementById("btnTaskManual");
+    const btnLearnAboutUs = document.getElementById("btnLearnAboutUs");
+            
+            btnMain.addEventListener("click", () => {
                 window.location.href = "Mainpage.html";
             })
 			btnCurrentTask.addEventListener("click", () => {
@@ -14,8 +22,18 @@ btnMain.addEventListener("click", () => {
 				window.location.href = "Learnaboutus.html";
 			})
 
-// calendar code starts here 
-document.addEventListener("DOMContentLoaded", function () { // this waits for the whole webpage to load before running the calendar code
+                const tasks = JSON.parse(localStorage.getItem('tasks')) || []; //move this inside the DOMContentLoaded to clean it up with only needing one, it all loads at the same time
+                const fieldset = document.querySelector('fieldset');
+
+    if (tasks.length === 0) {
+        fieldset.innerHTML += '<p>No tasks yet</p>'
+    } else {
+        tasks.forEach(task => {
+            const p = document.createElement('p');
+            p.textContent = `${task.date}: ${task.title} - ${task.goal} (${task.deadline || 'No deadline'})`;
+            fieldset.appendChild(p);
+        });
+    }
     // finds the element that will display the month and year
 
     const monthContainer = document.querySelector(".month ul li:nth-child(3)"); // Shows where the month and year will be shown
@@ -64,20 +82,7 @@ function renderCalendar() {
     renderCalendar();
 });
 
-document.addEventListener("DOMContentLoaded", function() {
-    const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
-    const fieldset = document.querySelector('fieldset');
-
-    if (tasks.length === 0) {
-        fieldset.innerHTML += '<p>No tasks yet</p>'
-    } else {
-        tasks.forEach(task => {
-            const p = document.createElement('p');
-            p.textContent = `${task.date}: ${task.title} - ${task.goal} (${task.deadline || 'No deadline'})`;
-            fieldset.appendChild(p);
-        });
-    }
-});
+//document.addEventListener("DOMContentLoaded", function() {
 
 
 // calendar code ends here, thank you for reading 

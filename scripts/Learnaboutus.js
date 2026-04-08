@@ -1,3 +1,10 @@
+document.addEventListener("DOMContentLoaded", function() {
+    const btnMain = document.getElementById("btnMain");
+    const btnCalendar = document.getElementById("btnCalendar");
+    const btnCurrentTask = document.getElementById("btnCurrentTask");
+    const btnAddDeleteTask = document.getElementById("btnAddDeleteTask");
+    const btnTaskManual = document.getElementById("btnTaskManual");
+
 btnMain.addEventListener("click", () => {
                 window.location.href = "Mainpage.html";
             })
@@ -13,3 +20,4 @@ btnMain.addEventListener("click", () => {
 		btnTaskManual.addEventListener("click", () => {
 				window.location.href = "Taskmanual.html";
 			})
+		});

@@ -76,24 +76,32 @@ function sendtolist() {
 
 	if (editingTaskID != null) {
        const editTaskSolve = tasks.find(task => task.id == editingTaskID);
+	   //console.log("found task:", editTaskSolve); Temp code to find IDs
 	   if (editTaskSolve) {
 		editTaskSolve.date = date;
 		editTaskSolve.title = title.trim();
 		editTaskSolve.goal = goal.trim();
 		editTaskSolve.deadline = deadline;
 	   }
+	   //console.log("editingTaskID:", editingTaskID);
+		//console.log("tasks:", JSON.parse(localStorage.getItem("tasks")) || []); 
+		//Temporary figuring out why one task wants to be special and have no iD
+	   localStorage.setItem('tasks', JSON.stringify(tasks)); // saves the updated tasks array back to localStorage. Make sure is before the change back.
 	   editingTaskID = null;
 	   localStorage.removeItem("editingTaskID");
 	   
 	   alert("Task edited successfully!");
+	   window.location.href ="Tasks.html"; //Please go backkkkk
+	   return; 
 	} else {
 		const id = Date.now();
 		const task = {id, date, title: title.trim(), goal:goal.trim(), deadline};
 		tasks.push(task);
+		localStorage.setItem('tasks', JSON.stringify(tasks)); // saves the updated tasks array back to localStorage. Make sure is before the change back.
 		alert("Task added successfully!"); //Task added message
 	}
 
-    localStorage.setItem('tasks', JSON.stringify(tasks)); // saves the updated tasks array back to localStorage
+    
 
     // Optional: Clear the form after saving
     document.getElementById("SetDate").value = "";
@@ -113,6 +121,8 @@ document.addEventListener("DOMContentLoaded", function() {
 	const editTaskSolve = editArray.find(task => task.id == editingTaskID);
 	if (editTaskSolve) {
 		const buttontasksubmit = document.getElementById("tasksubmit");
+		const pageHeading = document.getElementById('pageTitle');
+		pageHeading.textContent = "Editing Task";
 	   buttontasksubmit.textContent = "Edit Task";
 		editTaskSolveDate.value = editTaskSolve.date
 		editTaskSolveName.value = editTaskSolve.title
@@ -120,21 +130,31 @@ document.addEventListener("DOMContentLoaded", function() {
 		editTaskSolveDeadline.value = editTaskSolve.deadline
 	}
 	}
-	btnMain.addEventListener("click", () => {
+	
+    const btnMain = document.getElementById("btnMain");
+    const btnCalendar = document.getElementById("btnCalendar");
+    const btnCurrentTask = document.getElementById("btnCurrentTask");
+    const btnLearnAboutUs = document.getElementById("btnLearnAboutUs");
+	const btnTaskManual = document.getElementById("btnTaskManual");
+            
+            btnMain.addEventListener("click", () => {
                 window.location.href = "Mainpage.html";
             })
+			btnCurrentTask.addEventListener("click", () => {
+    			window.location.href = "Tasks.html";
+			})
+			
+			btnLearnAboutUs.addEventListener("click", () => {
+				window.location.href = "Learnaboutus.html";
+			})
+            
 	btnCalendar.addEventListener("click", () => {
 				window.location.href = "Calendar.html";
-			})
-	btnCurrentTask.addEventListener("click", () => {
-				window.location.href = "Tasks.html";
 			})
 	btnTaskManual.addEventListener("click", () => {
 				window.location.href = "Taskmanual.html";
 			})
-	btnLearnAboutUs.addEventListener("click", () => {
-				window.location.href = "Learnaboutus.html";
-			})	
+	
 	const buttontasksubmit = document.getElementById("tasksubmit");
 	buttontasksubmit.addEventListener("click", taskDate);
 	buttontasksubmit.addEventListener("click", taskName);
