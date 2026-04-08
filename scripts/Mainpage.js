@@ -1,3 +1,4 @@
+document.addEventListener("DOMContentLoaded", function() {
 btnCalendar.addEventListener("click", () => {
                 window.location.href = "Calendar.html";
             })
@@ -17,3 +18,4 @@ btnCalendar.addEventListener("click", () => {
              btnLearn.addEventListener("click", () => {
                 window.location.href = "Learnaboutus.html";
             })
+        });
