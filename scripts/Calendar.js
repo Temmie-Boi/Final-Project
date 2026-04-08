@@ -53,21 +53,27 @@ function renderCalendar() {
         const firstDay = new Date(year, month, 1).getDay(); // finds what day of the week the first month falls on (0-6, where 0 is Sunday and 6 is Saturday)  
         const startOffset = (firstDay === 0 ? 6 : firstDay - 1); // calculates how many empty spaces to add before the first day of the month (if the first day is Sunday, we want to start on the next line, so we set the offset to 6, otherwise we set it to the day of the week minus 1)
         const daysInMonth = new Date(year, month + 1, 0).getDate(); // finds how many days are in the current month (by creating a date object for the first day of the next month and then getting the date, which will be the last day of the current month)
+
         daysContainer.innerHTML = ""; // clears the days container before rendering the new month
         for (let i = 0; i < startOffset; i++) { // adds empty spaces before the first day of the month (if the first day is Sunday, we want to start on the next line, so we set the offset to 6, otherwise we set it to the day of the week minus 1)
             daysContainer.innerHTML += `<li></li>`;
         }
 
         for (let day = 1; day <= daysInMonth; day++) { // loops through the days of the month and adds them to the calendar (starting from 1 and ending at the number of days in the month)
-            const isToday =
+            const isToday = //Keep this together
                 day === new Date().getDate() &&
                 month === new Date().getMonth() &&
                 year === new Date().getFullYear();
 
+            const stringTaskDate = `${year}-${String(month+1).padStart(2,"0")}-${(String(day).padStart(2,"0"))}` //so instead of 0-11 because 0 for January hurts my brain, we go 1-12 for the +1 and padStart puts two digits and the starting digit (if only one) is a 0, please do not delete THIS! It is VITAL for transferring tasks to the calendar!
+            //ANYTHING to with `` check it. year decided to be GREEDY! Also remember quotations around the zero.
+            const calendarTasks = tasks.filter(taskItem => taskItem.date === stringTaskDate); //Brought over from Tasks.js and remembered to switch the ! for a =...thanks for that past me. also remember it is not task alone here but taskItem
+            const calendarTitles = calendarTasks.map(taskItem => taskItem.title).join("<br>");// I don't like you.
+
             daysContainer.innerHTML += isToday
-                ? `<li><span class="active">${day}</span></li>`
-                : `<li>${day}</li>`;
-        }
+                ? `<li><span class="active">${day}</span>${calendarTasks.length > 0 ? "📌" :""}<br>${calendarTitles}</li>` //This is temporary code to even see if the transition from making task to calendar works (Edit) The Pin is a good symbol. Let's just get titles underneath
+                : `<li>${day}${calendarTasks.length > 0 ? "📌" : ""}<br>${calendarTitles}</li>`; //more temporary code to make sure the tasks transition. any tasks at all should show a pin. (Edit) Hi there future me, please remember the actual code with <br> and calendarTitles if you want both again.
+        }       //Hey genius. Bugtest reminder. Make it not bounce up on it dayo. It go up in the air. Also make it so it organizes by date below.
     }
 
     prevBtn.addEventListener("click", () => { // adds an event listener to the previous month button (when clicked, it will go to the previous month and re-render the calendar)

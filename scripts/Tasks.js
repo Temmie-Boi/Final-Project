@@ -92,7 +92,7 @@
                        onClick: () => {
                             const CompletedUpdateTasks = tasks.map(taskItem => taskItem.id === task.id //Make sure to only checkmark the selected item. Thank you = for ! (Edit. I am a dumbass. I had it twice.) Checking ID
                             ? {...taskItem, completed: !taskItem.completed} : taskItem ); //So, the stuff before the : with the question mark is if it matches we mark it is as complete/true by reading the inverse of an inverted flag with a fresh copy 
-                                                                                        // it's kinda nifty to make it bounce like that! If no match...we leave it alone.
+                                                                                        // it's kinda nifty to make it bounce like that! No ginormous if/else If no match...we leave it alone.
                             localStorage.setItem("tasks", JSON.stringify(CompletedUpdateTasks)); //Hi there, please update the list
                             window.location.reload(); //Hi there again, please reload so I can see the checkmark!
                     }
