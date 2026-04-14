@@ -45,8 +45,8 @@ function taskGoal() {
 		//buttontasksubmit.addEventListener("click", taskGoal);
 		
 function taskDeadline() {
-			const taskDeadline = document.getElementById("Deadline");
-			const taskDeadlineValue = taskDeadline.value;
+			const taskDeadlineInput = document.getElementById("Deadline");
+			const taskDeadlineValue = taskDeadlineInput.value;
 			const deadlineOutputElement = document.getElementById("output-deadline");
 			
 			if (taskDeadlineValue) {
@@ -60,11 +60,25 @@ function taskDeadline() {
 		
 		//buttontasksubmit.addEventListener("click", sendtolist); 
 
+function taskCategory() {
+			const taskCategoryInput = document.getElementById("Category");
+			const taskCategoryValue = taskCategoryInput.value;
+			const categoryOutputElement = document.getElementById("output-category");
+
+			if (taskCategoryValue) {
+				categoryOutputElement.textContent = taskCategoryValue;
+			} else {
+				categoryOutputElement.textContent = "No Category Given";
+			}
+}
+
 function sendtolist() { 
     const date = document.getElementById("SetDate").value; // the date of the tasks 
     const title = document.getElementById("NameOfTask").value; // the title of the tasks 
     const goal = document.getElementById("Goal").value; // the goal of the tasks 
+	const category = document.getElementById("Category").value // the category of the tasks
     const deadline = document.getElementById("Deadline").value; // the deadline of the tasks
+	const time = document.getElementById("Deadline").value; //the time so it can be sorted
 
     // Basic validation: require at least a date and title
     if (!date || !title.trim()) {
@@ -82,6 +96,8 @@ function sendtolist() {
 		editTaskSolve.title = title.trim();
 		editTaskSolve.goal = goal.trim();
 		editTaskSolve.deadline = deadline;
+		editTaskSolve.category = category;
+		editTaskSolve.time = time;
 	   }
 	   //console.log("editingTaskID:", editingTaskID);
 		//console.log("tasks:", JSON.parse(localStorage.getItem("tasks")) || []); 
@@ -95,7 +111,7 @@ function sendtolist() {
 	   return; 
 	} else {
 		const id = Date.now();
-		const task = {id, date, title: title.trim(), goal:goal.trim(), deadline};
+		const task = {id, date, time, category, title: title.trim(), goal:goal.trim(), deadline};
 		tasks.push(task);
 		localStorage.setItem('tasks', JSON.stringify(tasks)); // saves the updated tasks array back to localStorage. Make sure is before the change back.
 		alert("Task added successfully!"); //Task added message
@@ -108,6 +124,7 @@ function sendtolist() {
     document.getElementById("NameOfTask").value = "";
     document.getElementById("Goal").value = "";
     document.getElementById("Deadline").value = "";
+	document.getElementById("Category").value = "";
 }
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -116,6 +133,8 @@ document.addEventListener("DOMContentLoaded", function() {
 	const editTaskSolveName = document.getElementById("NameOfTask"); //Same thing for SolveName
 	const editTaskSolveGoal = document.getElementById("Goal");
 	const editTaskSolveDeadline = document.getElementById("Deadline");
+	const editTaskSolveCategory = document.getElementById("Category");
+	const editTaskSolveTime = document.getElementById("Deadline");
 	if (editingTaskID != null) {
     const editArray = JSON.parse(localStorage.getItem("tasks")) || [];//This finds the task and helps to make edits possible
 	const editTaskSolve = editArray.find(task => task.id == editingTaskID);
@@ -128,6 +147,8 @@ document.addEventListener("DOMContentLoaded", function() {
 		editTaskSolveName.value = editTaskSolve.title
 		editTaskSolveGoal.value = editTaskSolve.goal
 		editTaskSolveDeadline.value = editTaskSolve.deadline
+		editTaskSolveCategory.value = editTaskSolve.category
+		editTaskSolveTime.value = editTaskSolve.time
 	}
 	}
 	
@@ -159,6 +180,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	buttontasksubmit.addEventListener("click", taskDate);
 	buttontasksubmit.addEventListener("click", taskName);
 	buttontasksubmit.addEventListener("click", taskGoal);
+	buttontasksubmit.addEventListener("click", taskCategory);
 	buttontasksubmit.addEventListener("click", taskDeadline);
 	buttontasksubmit.addEventListener("click", sendtolist);
 });
