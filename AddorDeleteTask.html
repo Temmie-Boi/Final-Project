@@ -18,6 +18,18 @@
     <label for="Goal">Goal:</label> 
 	<textarea id="Goal" name="Goal" cols="35" rows="1"></textarea>
     <br><br>
+	<label for="Category">Category:</label>
+	<select id="Category" name="taskCategoryMenu">
+	<option value="">Please select a Category</option>
+	<option value="Bathroom">Bathroom</option>
+	<option value="Bedroom">Bedroom</option>
+	<option value="Family">Family</option>
+	<option value="Job">Job</option>
+	<option value="Kitchen">Kitchen</option>
+	<option value="LivingRoom">Living Room</option>
+	<option value="Paperwork">Paperwork</option>
+	</select>
+	<br><br>
     <label for="Deadline">Deadline:</label>
 	<input type="time" id="Deadline" name="Deadline">
     <br><br>
@@ -26,6 +38,7 @@
 	<p> Task submitted:</p>
 	<p> Date of Task: <span id="output-date"></span></p>
 	<p> Title of Task: <span id="output-name"></span></p>
+	<p> Category of Task: <span id="output-category"></span></p>
 	<p> Goal of Task: <span id="output-goal"></span></p>
 	<p> Deadline Time: <span id="output-deadline"></span> </p>
 	

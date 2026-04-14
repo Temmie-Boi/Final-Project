@@ -33,6 +33,22 @@
             window.location.reload(); //reloads the page to show it gone
     });
     const tasks = JSON.parse(localStorage.getItem('tasks')) || []; // retrieves the tasks from localStorage, or initializes an empty array if there are no tasks
+    
+    tasks.sort (function(a,b) { //DO NOT PUT THE IF INSIDE THE FUNCTION! PUT IT INSIDE THE {} BRACKETS (Edit)  CONST NEEDS TO BE INSIDE TOO
+    const compareDates = (a.date || "").localeCompare(b.date || ""); //Compares dates to sort or puts them in the same one if the dates are the same, a date vs b date for new tasks and currents tasks
+    const compareCategories = (a.category || "").localeCompare(b.category || ""); //Constant for category to work, and the same fall back because of undefined error
+    const compareTimes = (a.time || "").localeCompare(b.time || ""); //Same with time
+    //console.log("A:", a.date, a.category, a.time); Temp code for seeing category, date, and time would all show to be sorted correctly
+    //console.log("B:", b.date, b.category, b.time);
+    //console.log("Date:", compareDates, "Category:", compareCategories, "Time:", compareTimes);
+    if (compareDates !== 0) { //Remember !== means not equal to!
+        return compareDates;
+    } else if (compareCategories !== 0){
+        return compareCategories; //remember the return here. It won't post if you don't (Edit. Not dates. Categories. Else is if the dates match.) (Edit 2, fall back with || to be safe)
+    } else {
+        return compareTimes; //finally compares time if date and category match
+    }}); // two }} and then a ) to make it work!
+   
     const reactTaskApp = document.getElementById('reactTaskApp'); // selects the React element where the tasks will be displayed
     const root = ReactDOM.createRoot(reactTaskApp); //the Root of React made constant
     //(This confirmed React worked. Keep it in case you mess it up again) 
@@ -62,7 +78,7 @@
     root.render(
         React.createElement(
             "div", null, tasks.length === 0 ? React.createElement ("p", null, "You do not have any tasks.")//If tasks are exactly 0 show this message in a <p> tag otherwise keep going.
-            : tasks.map(task => React.createElement("div", {key: task.id}, React.createElement("p", null,`${task.completed ? "✅" :""} ${task.date}: ${task.title} - ${task.goal} (${task.deadline || "No deadline"})` ), //If there is a task, make a p tag that pulls the id for the task so the system know,
+            : tasks.map(task => React.createElement("div", {key: task.id}, React.createElement("p", null,`${task.completed ? "✅" :""} ${task.date}: ${task.title} - ${task.goal} ${task.category || "No category"} (${task.deadline || "No deadline"})` ), //If there is a task, make a p tag that pulls the id for the task so the system know,
                                                                                                                                                           // DO NOT USE ', USE ` because that needs to be it to pull the data and make it a template for the variables! Also include a checkmark for the task completed!                                                                                                                                      // then pull the date, title, goal, and deadline and make something if there is no deadline
                 React.createElement(                                                                                                                      //Why is this in four lines? 
                     "button",                                                                                                                             //Because even on a 4k monitor, I need to scroll and i would rather not as much.
