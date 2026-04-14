@@ -73,8 +73,9 @@ function renderCalendar() {
             daysContainer.innerHTML += isToday
                 ? `<li><span class="active">${day}</span>${calendarTasks.length > 0 ? "📌" :""}<br>${calendarTitles}</li>` //This is temporary code to even see if the transition from making task to calendar works (Edit) The Pin is a good symbol. Let's just get titles underneath
                 : `<li>
-                ${day}${calendarTasks.length > 0 ? "📌" : ""}<br>
-                ${calendarTitles}</li>`; //more temporary code to make sure the tasks transition. any tasks at all should show a pin. (Edit) Hi there future me, please remember the actual code with <br> and calendarTitles if you want both again.
+                ${calendarTitles}<br>
+                ${day}${calendarTasks.length > 0 ? "📌" : ""}</li>
+                `; //more temporary code to make sure the tasks transition. any tasks at all should show a pin. (Edit) Hi there future me, please remember the actual code with <br> and calendarTitles if you want both again.
         }       //Hey genius. Bugtest reminder. Make it not bounce up on it dayo. It go up in the air. Also make it so it organizes by date below.
     }
 
