@@ -7,15 +7,74 @@ body{
 	text-align: center;
 }
 
+
 .MichelleProfile {
 	text-align: center;
 	
 }
 
+.Michellelegend {
+	font-size: 20px;
+}
+
+.Michelleheader {
+	font-size: 35px;
+}
+
+.Michelletext {
+	font-size: 19px;
+}
+
+
+
 .LorenzoProfile {
 	text-align: center;
 }
 
-.EvanProfile {
-	text-align: center;
+.Lorenzolegend {
+	font-size: 20px;
+}
+
+.Lorenzoheader {
+	font-size: 35px;
+}
+
+.Lorenzotext {
+	font-size: 19px;
+}
+
+
+
+.Evanprofile {
+	text-align: center; 
 } 
+
+.Evanlegend {
+	font-size: 20px;
+}
+
+.Evanheader {
+	font-size: 35px;
+}
+
+.Evantext {
+	font-size: 19px;
+}
+
+
+
+.Aboutappprofile {
+	text-align: center;
+}
+
+.Aboutapplegend {
+	font-size: 20px;
+}
+
+.Aboutappheader {
+	font-size: 35px;
+}
+
+.Aboutapptext {
+	font-size: 19px;
+}
