@@ -5,6 +5,7 @@
     	const btnAddDeleteTask = document.getElementById("btnAddDeleteTask");
     	const btnLearnAboutUs = document.getElementById("btnLearnAboutUs");
         const btnDeleteALLNotOneLeft = document.getElementById("btnDeleteALLNotOneLeft");
+        const selectedDateFromCalendar = localStorage.getItem("selectedDateFromCalendar");
 
             btnMain.addEventListener("click", () => {
                 window.location.href = "Mainpage.html";
@@ -78,7 +79,7 @@
     root.render(
         React.createElement(
             "div", null, tasks.length === 0 ? React.createElement ("p", null, "You do not have any tasks.")//If tasks are exactly 0 show this message in a <p> tag otherwise keep going.
-            : tasks.map(task => React.createElement("div", {key: task.id}, React.createElement("p", null,`${task.completed ? "✅" :""} ${task.date}: ${task.title} - ${task.goal} ${task.category || "No category"} (${task.deadline || "No deadline"})` ), //If there is a task, make a p tag that pulls the id for the task so the system know,
+            : tasks.map(task => React.createElement("div", {key: task.id}, React.createElement("p", {className: task.date === selectedDateFromCalendar ? "highlight-from-calendar" : ""},`${task.completed ? "✅" :""} ${task.date}: ${task.title} - ${task.goal} ${task.category || "No category"} (${task.deadline || "No deadline"})` ), //If there is a task, make a p tag that pulls the id for the task so the system know,
                                                                                                                                                           // DO NOT USE ', USE ` because that needs to be it to pull the data and make it a template for the variables! Also include a checkmark for the task completed!                                                                                                                                      // then pull the date, title, goal, and deadline and make something if there is no deadline
                 React.createElement(                                                                                                                      //Why is this in four lines? 
                     "button",                                                                                                                             //Because even on a 4k monitor, I need to scroll and i would rather not as much.
@@ -121,6 +122,7 @@
             )                                                                                                                                             
         )
     ); //ok, screw these brackets. So many . Pay attention to the pretty colours. Make sure you have two of each. Like the socks.
+    localStorage.removeItem("selectedDateFromCalendar");
     });
 
   
