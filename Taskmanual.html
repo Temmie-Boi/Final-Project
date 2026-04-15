@@ -5,32 +5,32 @@
    <link rel="stylesheet" href="CSS/Taskmanual.css">
   </head>
 <body>
-
-<label for="taskSelection" class = "Tasktext">Choose a task below:</label>
-
-
+<div id="taskManualPage"> <!-- Make the entire page in wrappers so the Supabase can play nice.-->
 <form id="tasklinkform">
+	<label for="taskSelection" class = "Tasktext">Choose Task You Need Help With</label>
 
-<select id="taskSelection" name="taskInstructMenu">
-	<option value="">Please select an Option</option>
-	<option value="bathroom">Cleaning your Bathroom</option>
-	<option value="bedroom">Cleaning your Bedroom</option>
-	<option value="bed">Making your bed</option>
-	<option value="dishwash">Washing your dishes</option>
+
+<div id="taskInstructionsSelected">
+	<h2> Task Instructions (Including Link)</h2>
+	<select id="taskSelection" name="taskInstructMenu">
+		<option value="">Please select an Option</option>
+		<option value="bathroom">Cleaning your Bathroom</option>
+		<option value="bedroom">Cleaning your Bedroom</option>
+		<option value="bed">Making your bed</option>
+		<option value="dishwash">Washing your dishes</option>
 	</select>
-
+</div>
 </form>
 
-<br>
-
-<br>
-
+<div id="navigationBtns">
         <button id="btnMain">Main page</button>
 		<button id="btnCalendar">Calendar</button>
 		<button id="btnCurrentTask">View Current Tasks</button>
 		<button id="btnAddDeleteTask">Add/Delete Tasks</button>
 		<button id="btnLearnAboutUs">Learn About The Developers</button>
-
+</div> <!--Make the buttons play next with the Supabase HTML.-->
+</div>
+	<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script> <!--Supabase script for js to call it -->
        <script src="scripts/Taskmanual.js"></script>
 </body>
 </html>
