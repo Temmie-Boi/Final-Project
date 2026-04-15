@@ -6,3 +6,16 @@ body{
 	background-attachment: scroll; 
 	text-align: center;
 }
+
+#navigationBtns{
+	margin-top: 20px;
+}
+
+#navigationBtns button{
+	margin: 5px;
+	padding: 10px 15px;
+	border-radius: 10px;
+	color: white;
+	background: black;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.6)
+}
